@@ -69,7 +69,7 @@
 \begin_body
 
 \begin_layout Title
-ZB2L3 v.2.0 1.2-12V Battery Capacity Tester 
+ZB2L3 1.2-12V Battery Capacity Tester 
 \end_layout
 
 \begin_layout Standard
@@ -103,7 +103,22 @@ status open
 \end_layout
 
 \begin_layout Section*
-Description:
+Description
+\end_layout
+
+\begin_layout Standard
+This is a simple, cheap, standalone battery capacity tester from Ebay (around
+ $5).
+ It connects to the battery and a load resistor, and draws power from a
+ microUSB connector (no communications to the computer, just power).
+ It draws power from the battery until a predetermined discharge termination
+ voltage is reached, whence it displays the integrated Ampere-hours (Ah)
+ of battery capacity (it's a pity that Ah is the accepted unit rather than
+ Volt-Ampere-seconds, a.k.a Joules).
+ The Ebay description is hard to understand, so I edited it into more convention
+al English.
+ All errors therefore are mine---I am uncertain about the details in the
+ calibration section, for instance.
 \end_layout
 
 \begin_layout Itemize
