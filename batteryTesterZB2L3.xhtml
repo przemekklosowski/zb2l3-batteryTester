@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="GENERATOR" content="LyX 2.1.4" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<title>ZB2L3 v.2.0 1.2-12V Battery Capacity Tester </title>
+<style type='text/css'>
+/* Layout-provided Styles */
+h1.title {
+font-size: x-large;
+margin-bottom: 1ex;
+text-align: center;
+
+}
+div.standard {
+margin-bottom: 2ex;
+}
+div.plain_layout {
+text-align: left;
+
+}
+h2.section_ {
+font-weight: bold;
+font-size: x-large;
+margin-top: 1.3ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+ul.itemize {
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+margin-left: 3ex;
+text-align: left;
+
+}
+ol.enumerate {
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+margin-left: 3ex;
+text-align: left;
+
+}
+h3.subsection_ {
+font-weight: bold;
+font-size: large;
+margin-top: 0.9ex;
+margin-bottom: 0.5ex;
+text-align: left;
+
+}
+dl.description dt { font-weight: bold; }
+div.Frameless { margin: 1em; }
+
+
+</style>
+</head>
+<body>
+<h1 class="title"><a id='magicparlabel-1' />ZB2L3 v.2.0 1.2-12V Battery Capacity Tester </h1>
+<div class="standard"><a id='magicparlabel-2' /><div class='Frameless'><div class="plain_layout" style='text-align: center;'><a id='magicparlabel-6' /><img style='width:40%;' src='0_home_przemek_Projects_Electronics_zb2l3-batteryTester_zb2l3.png' alt='image: 0_home_przemek_Projects_Electronics_zb2l3-batteryTester_zb2l3.png' />
+</div>
+</div></div>
+<h2 class="section_"><a id='magicparlabel-7' />Description:</h2>
+
+<ul class="itemize"><a id='magicparlabel-8' /><li class="itemize_item">External load resistor (7.5 Ω)</li>
+<li class="itemize_item">Power supply voltage: DC4.5-6V (micro USB interface)</li>
+<li class="itemize_item">Working current: less than 70mA</li>
+<li class="itemize_item">Measured battery voltage: 1.00V-15.00V, resolution 0.01V</li>
+<li class="itemize_item">Automatically selected termination voltage, depending on the initial charged cell voltage (range: 0.5-11.0V)</li>
+<li class="itemize_item">Maximum current 3A, resolution 0.001A</li>
+<li class="itemize_item">The maximum measurement error voltage: 1% +- 0.03V</li>
+<li class="itemize_item">The maximum measurement error of current: 2% +- 0.010A</li>
+<li class="itemize_item">The maximum battery capacity range: 0.001Ah..9999Ah (values lower than 10Ah are displayed as X.XXX; values between 10Ah and 99.99Ah are displayed as XX.XX, and so on).</li>
+<li class="itemize_item">Board size: 50mm long by 36mm wide, by 17mm high, including standoffs</li>
+</ul>
+<div class="standard"><a id='magicparlabel-18' />Note: in order to improve the voltage measurement accuracy, the circuit applies a DC bias. The display may show a small residual value, which does not affect the actual measurement.</div>
+<h2 class="section_"><a id='magicparlabel-19' />Usage instructions</h2>
+
+<ol class="enumerate"><a id='magicparlabel-20' /><li class="enumerate_item">Measured battery should be fully charged.</li>
+<li class="enumerate_item">Connect to the tested battery observing the polarity (+ terminal on the PCB to positive battery terminal). <b><i>Reversing The Polarity May Damage The Circuit!</i></b> Connect the operating power to the tester via the micro USB cable. The display should indicate the battery voltage.</li>
+<li class="enumerate_item">Start test by pressing the "OK" button. The tester will automatically set suitable termination voltage, according to the battery full charge voltage, and flash it 3 times upon starting the test. 
+
+<ul class="itemize"><a id='magicparlabel-23' /><li class="itemize_item">The termination voltage chan be changed in 0.1V increments after starting the test, by pressing the "+" or "-" keys. The termination voltage is displayed with a leading P character.</li>
+</ul>
+</li><li class="enumerate_item">During testing, the electronic switch connects the load resistor, and the testing data are displayed in sequence, as shown by the LED indicator: 
+
+<ul class="itemize"><a id='magicparlabel-25' /><li class="itemize_item">the integrated capacity (Ah), </li>
+<li class="itemize_item">instantaneous discharge current (A) </li>
+<li class="itemize_item">current battery voltage (V)</li>
+</ul>
+</li><li class="enumerate_item">When the battery voltage reaches the termination voltage, the tester cuts off the load control switch, and displays the capacity (Ah) and rapidly blinks the corresponding LED indicator. Press "OK" to terminate flashing. Pressing the "OK" button again returns to power on state, so that another battery can be connected and tested.</li>
+</ol>
+<h3 class="subsection_"><a id='magicparlabel-29' />The error codes</h3>
+
+<dl class='description'><a id='magicparlabel-30' /><dt class="description_label">Err1:</dt>
+<dd class="description_item"> the battery voltage higher than 15V</dd>
+<dt class="description_label">Err2:</dt>
+<dd class="description_item"> the battery voltage is lower than the setting voltage termination</dd>
+<dt class="description_label">Err3:</dt>
+<dd class="description_item"> the battery is unable to withstand the load discharge current (either the internal battery resistance or connector/cable resistance is too large) </dd>
+<dt class="description_label">Err4:</dt>
+<dd class="description_item"> the current is too large (current is more than 3.1A)</dd>
+</dl>
+<h3 class="subsection_"><a id='magicparlabel-34' />Calibration</h3>
+<div class="standard"><a id='magicparlabel-35' />Apply USB power and simultaneously press all three buttons to enter the calibration mode and perform the following steps</div>
+
+<ol class="enumerate"><a id='magicparlabel-45' /><li class="enumerate_item">The first calibration step after entering the calibration displays the 0u0A; short connect both positive and negative input terminal and press the "OK" button</li>
+<li class="enumerate_item">Next, the display will show J10u; apply 10.00V DC between the input positive and negative terminal and press the "OK" button again.</li>
+<li class="enumerate_item">The display will show J2.0A; apply 2.0 A DC current between the input terminals and press the "OK" button to complete the calibration. </li>
+</ol>
+<div class="standard"><a id='magicparlabel-133' />If the tester determines that the calibration data is reliable, it will in turn show 4 calibration numbers after completing the procedure; otherwise it will ignore the calibration attempt, discard the data and exit the procedure.</div>
+<h3 class="subsection_"><a id='magicparlabel-36' />Shipped contents: </h3>
+
+<ul class="itemize"><a id='magicparlabel-37' /><li class="itemize_item">2x 5W 7.5ohm Resistance </li>
+<li class="itemize_item">1x Battery Capacity Tester Board ( USB cable is NOT provided )</li>
+</ul>
+</body>
+</html>
