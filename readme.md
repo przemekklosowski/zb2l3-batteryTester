@@ -5,7 +5,9 @@
 Description {#description .unnumbered}
 ===========
 
-This is a simple, cheap, standalone battery capacity tester from Ebay (around \$5). It connects to the battery and a load resistor, and draws power from a microUSB connector (no communications to the computer, just power). It draws power from the battery until a predetermined discharge termination voltage is reached, whence it displays the integrated Ampere-hours (Ah) of battery capacity (it’s a pity that Ah is the accepted unit rather than Volt-Ampere-seconds, a.k.a Joules). The Ebay description is hard to understand, so I edited it into more conventional English. All errors therefore are mine—I am uncertain about the details in the calibration section, for instance.
+This is a simple, cheap, standalone battery capacity tester from Ebay (around \$5). It connects to the battery and a load resistor, and draws power from a microUSB connector (no communications to the computer, just power). It draws power from the battery until a predetermined discharge termination voltage is reached, whence it displays the integrated Ampere-hours (Ah) of battery capacity (it’s a pity that Ah is the accepted unit rather than Volt-Ampere-seconds, a.k.a Joules).
+
+The Ebay description is hard to understand, so I edited it into more conventional English. All errors therefore are mine—I am uncertain about the details in the calibration section, for instance.
 
 -   External load resistor (7.5 W)
 
@@ -85,8 +87,29 @@ If the tester determines that the calibration data is reliable, it will in turn 
 Shipped contents:  {#shipped-contents .unnumbered}
 ------------------
 
--   2x 5W 7.5ohm Resistance
+-   2x 5W 7.5W Resistance
 
 -   1x Battery Capacity Tester Board ( USB cable is NOT provided )
 
+Load variation {#load-variation .unnumbered}
+--------------
 
+When testing 12V lead-acid batteries, the load current resulting from the provided 7.5 W load resistor is 1.6A and the load power is over 19W, far exceeding the 5W rating of the resistor. I decided to connect the two provided resistors in series, whereas the resistors see the current of 0.8A; this brings the power load back to 4.8W per resistor. I mounted the resistors on a small heatsink from an old graphics card, and attached them to a 0.1” header, so I that I can reconfigure the resistors into three combinations, using standard 0.1” jumpers:
+
+1.  just one 7.5W resistor
+
+2.  two 7.5W resistors in series, giving 15W, for battery voltages above 6.1V
+
+3.  two 7.5W resistors in parallel, giving 3.75W, for faster discharge of low battery voltages
+
+![Physical layout of the load circuit: jumper in position 1 results in 7.5W load, position 2 puts two 7.5W resistors in series, giving 15W, and two jumpers in position 3 connects both 7.5W resistors in parallel, giving 3.75W](LoadResistors)
+
+It would be an interesting circuit modification to connect both resistors to the circuit and add more load switches that can reconfigure both resistors in various load cinfigurations, depending on the battery voltage. I’d also add a temperature sensor to protect the load from cooking.
+
+Colophon {#colophon .unnumbered}
+--------
+
+This document is originally written in <span>L-.1667em.25em-.125emX</span> LaTeX editor, and converted into xhtml and markdown:
+
+    lyx --export latex batteryTesterZB2L3.lyx
+    pandoc --no-wrap -f latex -t markdown batteryTesterZB2L3.tex > readme.md 

@@ -115,10 +115,15 @@ This is a simple, cheap, standalone battery capacity tester from Ebay (around
  voltage is reached, whence it displays the integrated Ampere-hours (Ah)
  of battery capacity (it's a pity that Ah is the accepted unit rather than
  Volt-Ampere-seconds, a.k.a Joules).
- The Ebay description is hard to understand, so I edited it into more convention
-al English.
+ 
+\end_layout
+
+\begin_layout Standard
+The Ebay description is hard to understand, so I edited it into more conventiona
+l English.
  All errors therefore are mine---I am uncertain about the details in the
  calibration section, for instance.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -296,11 +301,108 @@ Shipped contents:
 \end_layout
 
 \begin_layout Itemize
-2x 5W 7.5ohm Resistance 
+2x 5W 7.5Ω Resistance 
 \end_layout
 
 \begin_layout Itemize
 1x Battery Capacity Tester Board ( USB cable is NOT provided )
+\end_layout
+
+\begin_layout Subsection*
+Load variation
+\end_layout
+
+\begin_layout Standard
+When testing 12V lead-acid batteries, the load current resulting from the
+ provided 7.5 Ω load resistor is 1.6A and the load power is over 19W, far
+ exceeding the 5W rating of the resistor.
+ I decided to connect the two provided resistors in series, whereas the
+ resistors see the current of 0.8A; this brings the power load back to 4.8W
+ per resistor.
+ I mounted the resistors on a small heatsink from an old graphics card,
+ and attached them to a 0.1
+\begin_inset Quotes erd
+\end_inset
+
+ header, so I that I can reconfigure the resistors into three combinations,
+ using standard 0.1
+\begin_inset Quotes erd
+\end_inset
+
+ jumpers:
+\end_layout
+
+\begin_layout Enumerate
+just one 7.5Ω resistor
+\end_layout
+
+\begin_layout Enumerate
+two 7.5Ω resistors in series, giving 15Ω, for battery voltages above 6.1V
+\end_layout
+
+\begin_layout Enumerate
+two 7.5Ω resistors in parallel, giving 3.75Ω, for faster discharge of low
+ battery voltages
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename LoadResistors.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Physical layout of the load circuit: jumper in position 1 results in 7.5Ω
+ load, position 2 puts two 7.5Ω resistors in series, giving 15Ω, and two
+ jumpers in position 3 connects both 7.5Ω resistors in parallel, giving 3.75Ω
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It would be an interesting circuit modification to connect both resistors
+ to the circuit and add more load switches that can reconfigure both resistors
+ in various load cinfigurations, depending on the battery voltage.
+ I'd also add a temperature sensor to protect the load from cooking.
+\end_layout
+
+\begin_layout Subsection*
+Colophon
+\end_layout
+
+\begin_layout Standard
+This document is originally written in LyX LaTeX editor, and converted into
+ xhtml and markdown:
+\end_layout
+
+\begin_layout Verbatim
+
+lyx --export latex batteryTesterZB2L3.lyx
+\end_layout
+
+\begin_layout Verbatim
+
+pandoc --no-wrap -f latex -t markdown batteryTesterZB2L3.tex > readme.md 
 \end_layout
 
 \end_body
