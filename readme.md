@@ -2,10 +2,10 @@
 
 ![image](zb2l3)
 
-Description {#description .unnumbered}
+Description
 ===========
 
-This is a simple, cheap, standalone battery capacity tester from Ebay (around \$5). It connects to the battery and a load resistor, and draws power from a microUSB connector (no communications to the computer, just power). It draws power from the battery until a predetermined discharge termination voltage is reached, whence it displays the integrated Ampere-hours (Ah) of battery capacity (it’s a pity that Ah is the accepted unit rather than Volt-Ampere-seconds, a.k.a Joules).
+This is a simple, cheap, standalone battery capacity tester from Ebay (around $5). It connects to the battery and a load resistor, and draws power from a microUSB connector (no communications to the computer, just power). It draws power from the battery until a predetermined discharge termination voltage is reached, whence it displays the integrated Ampere-hours (Ah) of battery capacity (it’s a pity that Ah is the accepted unit rather than Volt-Ampere-seconds, a.k.a Joules).
 
 The Ebay description is hard to understand, so I edited it into more conventional English. All errors therefore are mine—I am uncertain about the details in the calibration section, for instance.
 
@@ -31,7 +31,7 @@ The Ebay description is hard to understand, so I edited it into more conventiona
 
 Note: in order to improve the voltage measurement accuracy, the circuit applies a DC bias. The display may show a small residual value, which does not affect the actual measurement.
 
-Usage instructions {#usage-instructions .unnumbered}
+Usage instructions
 ==================
 
 1.  Measured battery should be fully charged.
@@ -52,26 +52,22 @@ Usage instructions {#usage-instructions .unnumbered}
 
 5.  When the battery voltage reaches the termination voltage, the tester cuts off the load control switch, and displays the capacity (Ah) and rapidly blinks the corresponding LED indicator. Press OK to terminate flashing. Pressing the OK button again returns to power on state, so that another battery can be connected and tested.
 
-The error codes {#the-error-codes .unnumbered}
+The error codes
 ---------------
 
-<span>Err1:</span>
+<span>Err1:</span>  
+the battery voltage higher than 15V
 
-:   the battery voltage higher than 15V
+<span>Err2:</span>  
+the battery voltage is lower than the setting voltage termination
 
-<span>Err2:</span>
+<span>Err3:</span>  
+the battery is unable to withstand the load discharge current (either the internal battery resistance or connector/cable resistance is too large)
 
-:   the battery voltage is lower than the setting voltage termination
+<span>Err4:</span>  
+the current is too large (current is more than 3.1A)
 
-<span>Err3:</span>
-
-:   the battery is unable to withstand the load discharge current (either the internal battery resistance or connector/cable resistance is too large)
-
-<span>Err4:</span>
-
-:   the current is too large (current is more than 3.1A)
-
-Calibration {#calibration .unnumbered}
+Calibration
 -----------
 
 Apply USB power and simultaneously press all three buttons to enter the calibration mode and perform the following steps
@@ -84,14 +80,14 @@ Apply USB power and simultaneously press all three buttons to enter the calibrat
 
 If the tester determines that the calibration data is reliable, it will in turn show 4 calibration numbers after completing the procedure; otherwise it will ignore the calibration attempt, discard the data and exit the procedure.
 
-Shipped contents:  {#shipped-contents .unnumbered}
+Shipped contents: 
 ------------------
 
 -   2x 5W 7.5W Resistance
 
 -   1x Battery Capacity Tester Board ( USB cable is NOT provided )
 
-Load variation {#load-variation .unnumbered}
+Load variation
 --------------
 
 When testing 12V lead-acid batteries, the load current resulting from the provided 7.5 W load resistor is 1.6A and the load power is over 19W, far exceeding the 5W rating of the resistor. I decided to connect the two provided resistors in series, whereas the resistors see the current of 0.8A; this brings the power load back to 4.8W per resistor. I mounted the resistors on a small heatsink from an old graphics card, and attached them to a 0.1” header, so I that I can reconfigure the resistors into three combinations, using standard 0.1” jumpers:
@@ -106,7 +102,7 @@ When testing 12V lead-acid batteries, the load current resulting from the provid
 
 It would be an interesting circuit modification to connect both resistors to the circuit and add more load switches that can reconfigure both resistors in various load cinfigurations, depending on the battery voltage. I’d also add a temperature sensor to protect the load from cooking.
 
-Colophon {#colophon .unnumbered}
+Colophon
 --------
 
 This document is originally written in <span>L-.1667em.25em-.125emX</span> LaTeX editor, and converted into xhtml and markdown:

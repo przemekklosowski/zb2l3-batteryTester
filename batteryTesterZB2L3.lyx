@@ -402,7 +402,8 @@ lyx --export latex batteryTesterZB2L3.lyx
 
 \begin_layout Verbatim
 
-pandoc --no-wrap -f latex -t markdown batteryTesterZB2L3.tex > readme.md 
+pandoc --no-wrap -f latex -t markdown_github batteryTesterZB2L3.tex > readme.md
+ 
 \end_layout
 
 \end_body
